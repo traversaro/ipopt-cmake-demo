@@ -6,11 +6,13 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 # set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
-set(IPOPT_LIBRARY_DIRS /usr/local/lib)
-set(IPOPT_INCLUDE_DIRS /usr/local/include/coin)
+set(IPOPT_LIBRARY_DIRS /usr/lib)
+set(IPOPT_INCLUDE_DIRS /usr/include/coin)
 
 message("ipopt binary path is: " ${IPOPT_LIBRARY_DIRS} )
 message("ipopt include path is: " ${IPOPT_INCLUDE_DIRS} )
+
+add_definitions(-DHAVE_CSTDDEF)
 
 include_directories(${IPOPT_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/include)
 link_directories(${IPOPT_LIBRARY_DIRS})
